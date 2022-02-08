@@ -27,12 +27,10 @@ function gameplay(e) {
     const round = document.querySelector(".round");
     const cumscore = document.querySelector(".cumscore");
     round.childNodes[0].innerText = `Rounds(${rnd})`;
-
     let text = e.target.className;
     const userPlay = (text.match("rock") || text.match("paper") || text.match("scissors")).toString();
     const CPU = computerPlay();
     reply = playRound(userPlay, CPU);
-
     comment.innerHTML = `<img src="./images/${userPlay}.png">` + `<img src="./images/${CPU}.png">`;
     comment.style.transform = "scale(1)";
     
