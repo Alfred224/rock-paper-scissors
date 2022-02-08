@@ -31,7 +31,7 @@ h1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 5em;
     transition: 0.5s;
-    color: firebrick;
+    color: rgb(167, 15, 15);
     display: flex;
     gap: 1em;
 }
@@ -91,7 +91,6 @@ td {
     bottom: 50%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 3em;
-    color: chocolate;
 }
 
 footer {
@@ -99,6 +98,7 @@ footer {
     justify-content: center;
     align-self: stretch;
     background-color: rgba(62, 14, 117, 0.603);
+    color: white;
 }
 
 

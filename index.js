@@ -37,17 +37,20 @@ function gameplay(e) {
     comment.style.transform = "scale(1)";
     
     if (reply.includes("win")) {
+        rndComment.style.color = "green";
         rndComment.innerText = response(compliments);
         playerPoint = 1;
         computerPoint = 0;
     } else if (reply.includes("lose")){
+        rndComment.style.color = "red";
         rndComment.innerText = response(criticism);
         playerPoint = 0;
         computerPoint = 1;
     } else {
-        rndComment.innerText = "Tough round";
-        playerPoint = 1;
-        computerPoint = 1;
+        rndComment.style.color = "yellow";
+        rndComment.innerText = rnd == 1 ? "Tough round" : response(["Tough round", "Pretty intense"]);
+        playerPoint = 0;
+        computerPoint = 0;
     }
 
     playerScore += playerPoint;
@@ -99,7 +102,7 @@ let playerScore = 0;
 let computerScore = 0;
 const compliments = ["Good job", "You are amazing", "Nice shot", "Impressive", "You are a natural"];
 const criticism = ["Too bad", "Better luck next time", "Don't lose hope"];
-const result = {true: "You Won", false: "You Lost"};
+const result = {true: "You Won!!!", false: "You Lost!!!"};
 const btnchoice = document.querySelectorAll(".choice");
 btnchoice.forEach(item => item.addEventListener("click", gameplay));
 
