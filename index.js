@@ -23,8 +23,10 @@ function playRound(playerSelection="", computerSelection="") {
 }
 
 function gameplay(e) {
+    rnd++
     const round = document.querySelector(".round");
     const cumscore = document.querySelector(".cumscore");
+    round.childNodes[0].innerText = `Rounds(${rnd})`;
 
     let text = e.target.className;
     const userPlay = (text.match("rock") || text.match("paper") || text.match("scissors")).toString();
@@ -59,10 +61,11 @@ function gameplay(e) {
         comment.innerText = playerScore != computerScore ? result[playerScore > computerScore] : "A Tie";
         playerScore = 0;
         computerScore = 0;
+        rndComment.innerText = "";
         selections.style.transform = "scale(0)";
         play.innerText = "Play Again"
         play.style.transform = "scale(1)";  
-        rndComment.innerText = "";
+        rnd = 0;
     }
 }
 
@@ -89,6 +92,7 @@ play.addEventListener("click", () => {
 });
 
 //Gameplay initializers
+let rnd = 0;
 let playerPoint = 0;
 let computerPoint = 0;
 let playerScore = 0;
