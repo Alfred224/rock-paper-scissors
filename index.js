@@ -3,6 +3,9 @@ function response(arr) {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
+window.oncontextmenu = () => {return false};
+window.onkeydown = () => {return false};
+
 function computerPlay() {
     //Computer's Choice
     return response(["rock", "paper", "scissors"]);
