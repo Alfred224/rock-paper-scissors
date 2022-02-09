@@ -22,17 +22,23 @@ function playRound(playerSelection="", computerSelection="") {
     return reply;
 }
 
+function gamePlayInit(e, round) {
+    const text = e.target.className;
+    const userPlay = (text.match("rock") || text.match("paper") || text.match("scissors")).toString();
+    const CPU = computerPlay();
+    const reply = playRound(userPlay, CPU);
+    comment.innerHTML = `<img src="./images/${userPlay}.png">` + `<img src="./images/${CPU}.png">`;
+    comment.style.transform = "scale(1)";
+    round.childNodes[0].innerText = `Rounds(${rnd})`;
+    rndComment.style.transform = "scale(1)";
+    return reply;
+}
+
 function gameplay(e) {
     rnd++
     const round = document.querySelector(".round");
     const cumscore = document.querySelector(".cumscore");
-    round.childNodes[0].innerText = `Rounds(${rnd})`;
-    let text = e.target.className;
-    const userPlay = (text.match("rock") || text.match("paper") || text.match("scissors")).toString();
-    const CPU = computerPlay();
-    reply = playRound(userPlay, CPU);
-    comment.innerHTML = `<img src="./images/${userPlay}.png">` + `<img src="./images/${CPU}.png">`;
-    comment.style.transform = "scale(1)";
+    const reply = gamePlayInit(e, round);
     
     if (reply.includes("win")) {
         rndComment.style.color = "green";
@@ -62,7 +68,7 @@ function gameplay(e) {
         comment.innerText = playerScore != computerScore ? result[playerScore > computerScore] : "A Tie";
         playerScore = 0;
         computerScore = 0;
-        rndComment.innerText = "";
+        rndComment.style.transform = "scale(0)";
         selections.style.transform = "scale(0)";
         play.innerText = "Play Again"
         play.style.transform = "scale(1)";  

@@ -91,6 +91,7 @@ td {
     bottom: 50%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 3em;
+    transition: 0.5s;
 }
 
 footer {
