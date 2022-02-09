@@ -1,12 +1,12 @@
 function response(arr) {
     const choices = arr;
     return choices[Math.floor(Math.random() * choices.length)];
-};
+}
 
 function computerPlay() {
     //Computer's Choice
-    return response(["rock", "paper", "scissors"])
-};
+    return response(["rock", "paper", "scissors"]);
+}
 
 function playRound(playerSelection="", computerSelection="") {
     //RPS round
@@ -35,7 +35,7 @@ function gamePlayInit(e, round) {
 }
 
 function gameplay(e) {
-    rnd++
+    rnd++;
     const round = document.querySelector(".round");
     const cumscore = document.querySelector(".cumscore");
     const reply = gamePlayInit(e, round);
@@ -70,7 +70,7 @@ function gameplay(e) {
         computerScore = 0;
         rndComment.style.transform = "scale(0)";
         selections.style.transform = "scale(0)";
-        play.innerText = "Play Again"
+        play.innerText = "Play Again";
         play.style.transform = "scale(1)";  
         rnd = 0;
     }
@@ -88,7 +88,7 @@ const tbody = document.createElement("tbody");
 const rndComment = document.querySelector("#rnd-comment");
 
 play.addEventListener("click", () => {
-    comment.style.transform = "scale(0)"
+    comment.style.transform = "scale(0)";
     selections.style.transform = "scale(1)";
     play.style.transform = "scale(0)";
     gamePlay.insertBefore(table, gamePlay.childNodes[2]);
